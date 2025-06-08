@@ -1,11 +1,116 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Map.css';
-import mapImage from '../maps/000-BLANK.png';
+import blankMapImage from '../maps/000-BLANK.png';
+
+// Import all map images here
+import map001 from '../maps/001-NEW-BARK-TOWN.png';
+import map002 from '../maps/002-ROUTE-29.png';
+import map003 from '../maps/003-CHERRYGROVE-CITY.png';
+import map004 from '../maps/004-ROUTE-30.png';
+import map005 from '../maps/005-ROUTE-31.png';
+import map006 from '../maps/006-VIOLET-CITY.png';
+import map007 from '../maps/007-SPROUT-TOWER.png';
+import map008 from '../maps/008-ROUTE-32.png';
+import map009 from '../maps/009-RUINS OF ALPH.png';
+import map010 from '../maps/010-UNION-CAVE.png';
+import map011 from '../maps/011-ROUTE-33.png';
+import map012 from '../maps/012-AZALEA-TOWN.png';
+import map013 from '../maps/013-SLOWPOKE-WELL.png';
+import map014 from '../maps/014-ILEX FOREST.png';
+import map015 from '../maps/015-ROUTE-34.png';
+import map016 from '../maps/016-GOLDENROD-CITY.png';
+import map017 from '../maps/017-RADIO-TOWER.png';
+import map018 from '../maps/018-ROUTE-35.png';
+import map019 from '../maps/019-NATIONAL-PARK.png';
+import map020 from '../maps/020-ROUTE-36.png';
+import map021 from '../maps/021-ROUTE-37.png';
+import map022 from '../maps/022-ECRUTEAK-CITY.png';
+import map023 from '../maps/023-TIN-TOWER.png';
+import map024 from '../maps/024-BURNED-TOWER.png';
+import map025 from '../maps/025-ROUTE-38.png';
+import map026 from '../maps/026-ROUTE-39.png';
+import map027 from '../maps/027-OLIVINE-CITY.png';
+import map028 from '../maps/028-LIGHTHOUSE.png';
+import map029 from '../maps/029-BATTLE-TOWER.png';
+import map030 from '../maps/030-ROUTE-40.png';
+import map031 from '../maps/031-WHIRL-ISLANDS.png';
+import map032 from '../maps/032-ROUTE-41.png';
+import map033 from '../maps/033-CIANWOOD-CITY.png';
+import map034 from '../maps/034-ROUTE-42.png';
+import map035 from '../maps/035-MT-MORTAR.png';
+import map036 from '../maps/036-MAHOGANY-TOWN.png';
+import map037 from '../maps/037-ROUTE-43.png';
+import map038 from '../maps/038-LAKE-OF-RAGE.png';
+import map039 from '../maps/039-ROUTE-44.png';
+import map040 from '../maps/040-ICE-PATH.png';
+import map041 from '../maps/041-BLACKTHORN-CITY.png';
+import map042 from '../maps/042-DRAGONS-DEN.png';
+import map043 from '../maps/043-ROUTE-45.png';
+import map044 from '../maps/044-DARK-CAVE.png';
+import map045 from '../maps/045-ROUTE-46.png';
+import map046 from '../maps/046-SILVER-CAVE.png';
 
 function Map({ locations, selectedLocation, hoveredLocation, onLocationSelect, onLocationHover }) {
   const [mapAreas, setMapAreas] = useState([]);
   const mapContainerRef = useRef(null);
   const [scale, setScale] = useState(1);
+  
+  // Map of location IDs to their corresponding images
+  const locationMaps = {
+    '000': blankMapImage,
+    '001': map001,
+    '002': map002,
+    '003': map003,
+    '004': map004,
+    '005': map005,
+    '006': map006,
+    '007': map007,
+    '008': map008,
+    '009': map009,
+    '010': map010,
+    '011': map011,
+    '012': map012,
+    '013': map013,
+    '014': map014,
+    '015': map015,
+    '016': map016,
+    '017': map017,
+    '018': map018,
+    '019': map019,
+    '020': map020,
+    '021': map021,
+    '022': map022,
+    '023': map023,
+    '024': map024,
+    '025': map025,
+    '026': map026,
+    '027': map027,
+    '028': map028,
+    '029': map029,
+    '030': map030,
+    '031': map031,
+    '032': map032,
+    '033': map033,
+    '034': map034,
+    '035': map035,
+    '036': map036,
+    '037': map037,
+    '038': map038,
+    '039': map039,
+    '040': map040,
+    '041': map041,
+    '042': map042,
+    '043': map043,
+    '044': map044,
+    '045': map045,
+    '046': map046
+  };
+  
+  // Function to get the current map image based on selection
+  const getCurrentMapImage = () => {
+    if (!selectedLocation) return blankMapImage;
+    return locationMaps[selectedLocation] || blankMapImage;
+  };
   
   // Calculate scale factor whenever the container size changes
   useEffect(() => {
@@ -109,7 +214,7 @@ function Map({ locations, selectedLocation, hoveredLocation, onLocationSelect, o
       <div className="map-content" ref={mapContainerRef}>
         <div className="map-container">
           <img 
-            src={mapImage} 
+            src={getCurrentMapImage()} 
             alt="Johto Region Map" 
             className="region-map"
             useMap="#johto-map"
