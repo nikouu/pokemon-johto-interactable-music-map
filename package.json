@@ -1,10 +1,25 @@
 {
+  "name": "pokemon-johto-interactable-music-map",
+  "version": "1.0.0",
   "homepage": "https://nikouusitalo.github.io/pokemon-johto-interactable-music-map",
-  "engines": {
-    "node": ">=24.1.0"
+  "private": true,
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+    // ...other dependencies your project uses
+  },
+  "devDependencies": {
+    // Your build tools like Webpack, Vite, etc.
   },
   "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
+  },
+  "engines": {
+    "node": ">=24.1.0"
   }
 }
