@@ -188,3 +188,26 @@ html, body {
     /* height: 500px; */ /* Removed fixed height on small screens */
   }
 }
+
+/* Header styling with neutral colors */
+.app-header {
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Adjust existing app-container to accommodate the header */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  max-width: 1800px;
+  margin: 0 auto;
+}

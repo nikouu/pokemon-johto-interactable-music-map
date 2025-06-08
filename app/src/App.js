@@ -106,6 +106,9 @@ function App() {
   // Update to ensure we pass hoveredLocation to LocationList
   return (
     <div className="app-container">
+      <header className="app-header">
+        <h1>Johto Music Map</h1>
+      </header>
       <div className="content-area">
         <div className="top-section">
           <div className="map-container" ref={mapWrapperRef}>
@@ -130,12 +133,15 @@ function App() {
         </div>
         <div className="bottom-section">
           <div className="info-container">
-            <h2>About Johto Region</h2>
+            <h2>About This Project</h2>
             <div className="info-content">
-              <p>The Johto region is home to many Pokémon and was introduced in Pokémon Gold and Silver. 
-              This interactive map lets you explore Johto's locations and listen to their iconic music themes.</p>
-              <p>Select a location from the map or list to view details and play its theme music.</p>
-              <p>Locations with the same color share the same music theme.</p>
+              <h3>How to Use:</h3>
+              <ul>
+                <li>Click on any location on the map or in the list to select it and play its music</li>
+                <li>Hover over a location to see other areas that share the same music theme (highlighted in the same color)</li>
+                <li>Notice how routes, cities, and caves are connected through their musical identity</li>
+                <li>Click the same location again to pause the music</li>
+              </ul>
             </div>
           </div>
           

@@ -73,34 +73,72 @@ h2 {
   transition: fill 0.3s ease, stroke 0.3s ease, stroke-width 0.3s ease;
 }
 
-/* 1. Style for currently selected location - bright magenta with white stroke */
+/* 1. Style for currently selected location */
 .overlay-area.selected {
-  fill: rgba(220, 20, 140, 0.6); /* Brighter magenta */
+  fill: rgba(220, 20, 140, 0.6); /* Bright magenta */
   stroke: white;
-  stroke-width: 3.5px; /* Thicker outline */
+  stroke-width: 3.5px;
+  z-index: 10;
 }
 
-/* 2. Style for locations with same music as selected - lighter magenta with white stroke */
+/* 2. Style for locations with same music as selected */
 .overlay-area.related-selected {
   fill: rgba(220, 20, 140, 0.3); /* Lighter magenta */
   stroke: white;
-  stroke-width: 2.5px; /* Thicker outline */
+  stroke-width: 2.5px;
+  z-index: 5;
 }
 
-/* 3. Style for currently hovered location - bright with white pulse */
+/* 3. Style for currently hovered location */
 .overlay-area.hovered {
   fill: rgba(255, 165, 0, 0.5); /* Amber orange */
   stroke: white;
-  stroke-width: 3.5px; /* Thicker outline */
+  stroke-width: 3.5px;
   animation: pulse-white 1.5s infinite ease-in-out;
+  z-index: 15;
 }
 
-/* 4. Style for locations with same music as hovered - lighter with white pulse */
+/* 4. Style for locations with same music as hovered */
 .overlay-area.related-hovered {
   fill: rgba(255, 165, 0, 0.25); /* Lighter amber */
   stroke: rgba(255, 255, 255, 0.8);
-  stroke-width: 2.5px; /* Thicker outline */
+  stroke-width: 2.5px;
   animation: pulse-white-light 1.5s infinite ease-in-out;
+  z-index: 8;
+}
+
+/* Fix for overlapping/mixed states */
+.overlay-area.selected.hovered {
+  fill: rgb(220, 20, 140); /* Solid magenta */
+  stroke: white;
+  stroke-width: 4px;
+  animation: none !important;
+  z-index: 25;
+}
+
+.overlay-area.selected.related-hovered {
+  fill: rgb(220, 20, 140); /* Keep selected color */
+  stroke: white;
+  stroke-width: 3.5px;
+  animation: none !important;
+  z-index: 15;
+}
+
+.overlay-area.related-selected.hovered {
+  fill: rgb(255, 165, 0); /* Keep hovered color */
+  stroke: white;
+  stroke-width: 3.5px;
+  animation: pulse-white 1.5s infinite ease-in-out;
+  z-index: 20;
+}
+
+.overlay-area.related-selected.related-hovered {
+  /* Use solid color instead of transparent to prevent mixing */
+  fill: rgb(180, 90, 120); 
+  stroke: white;
+  stroke-width: 2.5px;
+  animation: none !important;
+  z-index: 12;
 }
 
 /* 5. Animation for pulsing effect with more white */
@@ -162,16 +200,18 @@ h2 {
 /* For when a location is both selected and hovered */
 .overlay-area.selected.hovered {
   animation: none !important;
-  fill: rgba(139, 0, 139, 0.5); /* Purple fill */
+  fill: rgb(220, 20, 140); /* Solid magenta, no transparency */
   stroke: white;
-  stroke-width: 4px; /* Thicker outline */
+  stroke-width: 4px;
+  z-index: 25;
 }
 
 .overlay-area.related-selected.related-hovered {
   animation: none !important;
-  fill: rgba(139, 0, 139, 0.3); /* Light purple fill */
-  stroke: rgba(255, 255, 255, 0.9);
-  stroke-width: 3px; /* Thicker outline */
+  fill: rgb(170, 100, 100); /* Solid color - no transparency */
+  stroke: white;
+  stroke-width: 2.5px;
+  z-index: 12;
 }
 
 /* Hide the default image map area outline */

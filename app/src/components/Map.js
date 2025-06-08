@@ -291,11 +291,22 @@ function Map({ locations, selectedLocation, hoveredLocation, onLocationSelect, o
               // Determine class based on selection/hover state
               const isSelected = selectedLocation === area.id;
               const isHovered = hoveredLocation === area.id;
-              const isRelatedToHovered = relatedToHovered.includes(area.id) && area.id !== hoveredLocation;
+              
+              // Determine if locations share music
               const isRelatedToSelected = relatedToSelected.includes(area.id) && area.id !== selectedLocation;
               
+              // Check if hovered location shares music with selected location
+              const hoveredSharesMusicWithSelected = hoveredLocation && 
+                relatedToSelected.includes(hoveredLocation);
+              
+              // Only apply related-hovered when the hovered location DOESN'T share music with selected
+              const isRelatedToHovered = !hoveredSharesMusicWithSelected && 
+                relatedToHovered.includes(area.id) && 
+                area.id !== hoveredLocation;
+              
               // Check if selected and hovered are the same location
-              const isSelectedAndHoveredSame = selectedLocation === hoveredLocation && selectedLocation !== null;
+              const isSelectedAndHoveredSame = selectedLocation === hoveredLocation && 
+                selectedLocation !== null;
               
               let className = 'overlay-area';
               if (isSelected) className += ' selected';

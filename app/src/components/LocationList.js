@@ -59,11 +59,22 @@ function LocationList({ locations, selectedLocation, hoveredLocation, isPlaying,
           // Determine classes based on selection/hover state
           const isSelected = selectedLocation === id;
           const isHovered = hoveredLocation === id;
+          
+          // Determine if locations share music
           const isRelatedToSelected = relatedToSelected.includes(id) && id !== selectedLocation;
-          const isRelatedToHovered = relatedToHovered.includes(id) && id !== hoveredLocation;
+          
+          // Check if hovered location shares music with selected location
+          const hoveredSharesMusicWithSelected = hoveredLocation && 
+            relatedToSelected.includes(hoveredLocation);
+          
+          // Only apply related-hovered when the hovered location DOESN'T share music with selected
+          const isRelatedToHovered = !hoveredSharesMusicWithSelected && 
+            relatedToHovered.includes(id) && 
+            id !== hoveredLocation;
           
           // Check if selected and hovered are the same location
-          const isSelectedAndHoveredSame = selectedLocation === hoveredLocation && selectedLocation !== null;
+          const isSelectedAndHoveredSame = selectedLocation === hoveredLocation && 
+            selectedLocation !== null;
           
           let className = 'location-item';
           if (isSelected) className += ' selected';
