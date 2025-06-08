@@ -59,8 +59,33 @@ function Map({ locations, selectedLocation, hoveredLocation, onLocationSelect, o
       { id: '017', name: 'Radio Tower', coords: '48,90,52,94' },
       { id: '018', name: 'Route 35', coords: '48,64,56,88' },
       { id: '019', name: 'National Park', coords: '48,56,56,64' },
-      // Add more areas for all locations in the same format
-      // Format: { id: 'locationId', name: 'Location Name', coords: 'x1,y1,x2,y2' }
+      { id: '020', name: 'Route 36', coords: '56,56,80,64' },
+      { id: '021', name: 'Route 37', coords: '64,48,72,56' },
+      { id: '022', name: 'Ecruteak City', coords: '64,40,72,48' },
+      { id: '023', name: 'Tin Tower', coords: '68,40,72,44' },
+      { id: '024', name: 'Burned Tower', coords: '64,40,68,44' },
+      { id: '025', name: 'Route 38', coords: '40,40,64,48' },
+      { id: '026', name: 'Route 39', coords: '32,40,40,56' },
+      { id: '027', name: 'Olivine City', coords: '32,56,40,64' },
+      { id: '028', name: 'Lighthouse', coords: '36,60,40,64' },
+      { id: '029', name: 'Battle Tower', coords: '26,54,30,58' },
+      { id: '030', name: 'Route 40', coords: '24,64,32,88' },
+      { id: '031', name: 'Whirl Islands', coords: '24,88,32,96' },
+      { id: '032', name: 'Route 41', coords: '24,96,32,104' },
+      { id: '033', name: 'Cianwood City', coords: '16,96,24,104' },
+      { id: '034', name: 'Route 42', coords: '72,40,104,48' },
+      { id: '035', name: 'Mt Mortar', coords: '80,40,88,48' },
+      { id: '036', name: 'Mahogany Town', coords: '104,40,112,48' },
+      { id: '037', name: 'Route 43', coords: '104,32,112,40' },
+      { id: '038', name: 'Lake of Rage', coords: '104,24,112,32' },
+      { id: '039', name: 'Route 44', coords: '112,40,128,48' },
+      { id: '040', name: 'Ice Path', coords: '128,36,132,40' },
+      { id: '041', name: 'Blackthorn City', coords: '128,40,136,48' },
+      { id: '042', name: 'Dragons Den', coords: '128,32,136,40' },
+      { id: '043', name: 'Route 45', coords: '128,48,136,80' },
+      { id: '044', name: 'Dark Cave', coords: '110,70,114,74' },
+      { id: '045', name: 'Route 46', coords: '120,72,128,96' },
+      { id: '046', name: 'Silver Cave', coords: '144,64,152,72' }
     ];
     
     setMapAreas(areas);
