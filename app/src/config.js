@@ -1,8 +1,12 @@
-// This file handles environment-specific configuration
+// Configuration for the app
 
 // Base path for GitHub Pages
-const isProduction = process.env.NODE_ENV === 'production';
-export const BASE_PATH = isProduction ? '/pokemon-johto-interactable-music-map' : '';
+export const BASE_PATH = process.env.NODE_ENV === 'production' 
+  ? '/pokemon-johto-interactable-music-map'
+  : '';
+
+// Public URL for assets
+export const PUBLIC_URL = process.env.PUBLIC_URL || BASE_PATH;
 
 // Helper function for asset paths
-export const getAssetPath = (path) => `${BASE_PATH}${path}`;
+export const getAssetPath = (path) => `${PUBLIC_URL}${path}`;
