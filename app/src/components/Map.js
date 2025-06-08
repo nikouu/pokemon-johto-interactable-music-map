@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Map.css';
 import blankMapImage from '../maps/000-BLANK.png';
+import locationData from '../data.json';
 
 // Import all map images here
 import map001 from '../maps/001-NEW-BARK-TOWN.png';
@@ -52,58 +53,59 @@ import map046 from '../maps/046-SILVER-CAVE.png';
 
 function Map({ locations, selectedLocation, hoveredLocation, onLocationSelect, onLocationHover }) {
   const [mapAreas, setMapAreas] = useState([]);
+  const [relatedLocations, setRelatedLocations] = useState([]);
   const mapContainerRef = useRef(null);
   const [scale, setScale] = useState(1);
   
   // Map of location IDs to their corresponding images
   const locationMaps = {
-    '000': blankMapImage,
-    '001': map001,
-    '002': map002,
-    '003': map003,
-    '004': map004,
-    '005': map005,
-    '006': map006,
-    '007': map007,
-    '008': map008,
-    '009': map009,
-    '010': map010,
-    '011': map011,
-    '012': map012,
-    '013': map013,
-    '014': map014,
-    '015': map015,
-    '016': map016,
-    '017': map017,
-    '018': map018,
-    '019': map019,
-    '020': map020,
-    '021': map021,
-    '022': map022,
-    '023': map023,
-    '024': map024,
-    '025': map025,
-    '026': map026,
-    '027': map027,
-    '028': map028,
-    '029': map029,
-    '030': map030,
-    '031': map031,
-    '032': map032,
-    '033': map033,
-    '034': map034,
-    '035': map035,
-    '036': map036,
-    '037': map037,
-    '038': map038,
-    '039': map039,
-    '040': map040,
-    '041': map041,
-    '042': map042,
-    '043': map043,
-    '044': map044,
-    '045': map045,
-    '046': map046
+    '000': blankMapImage,      // Blank
+    '001': map001,             // New Bark Town
+    '002': map002,             // Route 29
+    '003': map003,             // Cherrygrove City
+    '004': map004,             // Route 30
+    '005': map005,             // Route 31
+    '006': map006,             // Violet City
+    '007': map007,             // Sprout Tower
+    '008': map008,             // Route 32
+    '009': map009,             // Ruins of Alph
+    '010': map010,             // Union Cave
+    '011': map011,             // Route 33
+    '012': map012,             // Azalea Town
+    '013': map013,             // Slowpoke Well
+    '014': map014,             // Ilex Forest
+    '015': map015,             // Route 34
+    '016': map016,             // Goldenrod City
+    '017': map017,             // Radio Tower
+    '018': map018,             // Route 35
+    '019': map019,             // National Park
+    '020': map020,             // Route 36
+    '021': map021,             // Route 37
+    '022': map022,             // Ecruteak City
+    '023': map023,             // Tin Tower
+    '024': map024,             // Burned Tower
+    '025': map025,             // Route 38
+    '026': map026,             // Route 39
+    '027': map027,             // Olivine City
+    '028': map028,             // Lighthouse
+    '029': map029,             // Battle Tower
+    '030': map030,             // Route 40
+    '031': map031,             // Whirl Islands
+    '032': map032,             // Route 41
+    '033': map033,             // Cianwood City
+    '034': map034,             // Route 42
+    '035': map035,             // Mt Mortar
+    '036': map036,             // Mahogany Town
+    '037': map037,             // Route 43
+    '038': map038,             // Lake of Rage
+    '039': map039,             // Route 44
+    '040': map040,             // Ice Path
+    '041': map041,             // Blackthorn City
+    '042': map042,             // Dragons Den
+    '043': map043,             // Route 45
+    '044': map044,             // Dark Cave
+    '045': map045,             // Route 46
+    '046': map046              // Silver Cave
   };
   
   // Function to get the current map image based on selection
@@ -112,6 +114,32 @@ function Map({ locations, selectedLocation, hoveredLocation, onLocationSelect, o
     return locationMaps[selectedLocation] || blankMapImage;
   };
   
+  // Group locations by their YouTube links
+  useEffect(() => {
+    // Create a map of YouTube links to location IDs
+    const musicMap = {};
+    
+    Object.entries(locations).forEach(([id, data]) => {
+      if (data.youtube) {
+        if (!musicMap[data.youtube]) {
+          musicMap[data.youtube] = [];
+        }
+        musicMap[data.youtube].push(id);
+      }
+    });
+    
+    // Store this mapping for later use
+    setRelatedLocations(musicMap);
+  }, [locations]);
+  
+  // Find locations with the same music as the current hovered/selected location
+  const getRelatedLocationIds = (locationId) => {
+    if (!locationId || !locations[locationId]) return [];
+    
+    const youtubeLink = locations[locationId].youtube;
+    return relatedLocations[youtubeLink] || [];
+  };
+
   // Calculate scale factor whenever the container size changes
   useEffect(() => {
     const updateScale = () => {
@@ -142,59 +170,70 @@ function Map({ locations, selectedLocation, hoveredLocation, onLocationSelect, o
   }, []);
   
   useEffect(() => {
-    // Define clickable areas for each location on the map
-    // These coordinates are based on the original pixel art coordinates
-    const areas = [
-      { id: '001', name: 'New Bark Town', coords: '136,96,144,104' },
-      { id: '002', name: 'Route 29', coords: '104,96,136,104' },
-      { id: '003', name: 'Cherrygrove City', coords: '96,96,104,104' },
-      { id: '004', name: 'Route 30', coords: '96,64,104,96' },
-      { id: '005', name: 'Route 31', coords: '88,56,104,64' },
-      { id: '006', name: 'Violet City', coords: '80,56,88,64' },
-      { id: '007', name: 'Sprout Tower', coords: '83,56,87,60' },
-      { id: '008', name: 'Route 32', coords: '80,64,88,120' },
-      { id: '009', name: 'Ruins of Alph', coords: '73,73,79,79' },
-      { id: '010', name: 'Union Cave', coords: '80,120,88,128' },
-      { id: '011', name: 'Route 33', coords: '72,120,80,128' },
-      { id: '012', name: 'Azalea Town', coords: '64,120,72,128' },
-      { id: '013', name: 'Slowpoke Well', coords: '68,120,72,124' },
-      { id: '014', name: 'Ilex Forest', coords: '48,120,64,128' },
-      { id: '015', name: 'Route 34', coords: '48,96,56,120' },
-      { id: '016', name: 'Goldenrod City', coords: '48,88,56,96' },
-      { id: '017', name: 'Radio Tower', coords: '48,90,52,94' },
-      { id: '018', name: 'Route 35', coords: '48,64,56,88' },
-      { id: '019', name: 'National Park', coords: '48,56,56,64' },
-      { id: '020', name: 'Route 36', coords: '56,56,80,64' },
-      { id: '021', name: 'Route 37', coords: '64,48,72,56' },
-      { id: '022', name: 'Ecruteak City', coords: '64,40,72,48' },
-      { id: '023', name: 'Tin Tower', coords: '68,40,72,44' },
-      { id: '024', name: 'Burned Tower', coords: '64,40,68,44' },
-      { id: '025', name: 'Route 38', coords: '40,40,64,48' },
-      { id: '026', name: 'Route 39', coords: '32,40,40,56' },
-      { id: '027', name: 'Olivine City', coords: '32,56,40,64' },
-      { id: '028', name: 'Lighthouse', coords: '36,60,40,64' },
-      { id: '029', name: 'Battle Tower', coords: '26,54,30,58' },
-      { id: '030', name: 'Route 40', coords: '24,64,32,88' },
-      { id: '031', name: 'Whirl Islands', coords: '24,88,32,96' },
-      { id: '032', name: 'Route 41', coords: '24,96,32,104' },
-      { id: '033', name: 'Cianwood City', coords: '16,96,24,104' },
-      { id: '034', name: 'Route 42', coords: '72,40,104,48' },
-      { id: '035', name: 'Mt Mortar', coords: '80,40,88,48' },
-      { id: '036', name: 'Mahogany Town', coords: '104,40,112,48' },
-      { id: '037', name: 'Route 43', coords: '104,32,112,40' },
-      { id: '038', name: 'Lake of Rage', coords: '104,24,112,32' },
-      { id: '039', name: 'Route 44', coords: '112,40,128,48' },
-      { id: '040', name: 'Ice Path', coords: '128,36,132,40' },
-      { id: '041', name: 'Blackthorn City', coords: '128,40,136,48' },
-      { id: '042', name: 'Dragons Den', coords: '128,32,136,40' },
-      { id: '043', name: 'Route 45', coords: '128,48,136,80' },
-      { id: '044', name: 'Dark Cave', coords: '110,70,114,74' },
-      { id: '045', name: 'Route 46', coords: '120,72,128,96' },
-      { id: '046', name: 'Silver Cave', coords: '144,64,152,72' }
-    ];
+    // Define clickable areas for each location on the map using data from locations
+    const areas = Object.entries(locations).map(([id, location]) => {
+      // Skip the blank/default location
+      if (id === '000') return null;
+      
+      // Use the predefined coordinates based on ID
+      const coordsMap = {
+        '001': '136,96,144,104',     // New Bark Town
+        '002': '104,96,136,104',     // Route 29
+        '003': '96,96,104,104',      // Cherrygrove City
+        '004': '96,64,104,96',       // Route 30
+        '005': '88,56,104,64',       // Route 31
+        '006': '80,56,88,64',        // Violet City
+        '007': '83,56,87,60',        // Sprout Tower
+        '008': '80,64,88,120',       // Route 32
+        '009': '72,72,80,80',        // Ruins of Alph
+        '010': '80,120,88,128',      // Union Cave
+        '011': '72,120,80,128',      // Route 33
+        '012': '64,120,72,128',      // Azalea Town
+        '013': '68,120,72,124',      // Slowpoke Well
+        '014': '48,120,64,128',      // Ilex Forest
+        '015': '48,96,56,120',       // Route 34
+        '016': '48,88,56,96',        // Goldenrod City
+        '017': '48,90,52,94',        // Radio Tower
+        '018': '48,64,56,88',        // Route 35
+        '019': '48,56,56,64',        // National Park
+        '020': '56,56,80,64',        // Route 36
+        '021': '64,48,72,56',        // Route 37
+        '022': '64,40,72,48',        // Ecruteak City
+        '023': '68,40,72,44',        // Tin Tower
+        '024': '64,40,68,44',        // Burned Tower
+        '025': '40,40,64,48',        // Route 38
+        '026': '32,40,40,56',        // Route 39
+        '027': '32,56,40,64',        // Olivine City
+        '028': '36,60,40,64',        // Lighthouse
+        '029': '26,54,30,58',        // Battle Tower
+        '030': '24,56,32,88',        // Route 40
+        '031': '24,88,32,96',        // Whirl Islands
+        '032': '24,96,32,104',       // Route 41
+        '033': '16,96,24,104',       // Cianwood City
+        '034': '72,40,104,48',       // Route 42
+        '035': '80,40,88,48',        // Mt Mortar
+        '036': '104,40,112,48',      // Mahogany Town
+        '037': '104,32,112,40',      // Route 43
+        '038': '104,24,112,32',      // Lake of Rage
+        '039': '112,40,128,48',      // Route 44
+        '040': '128,36,132,40',      // Ice Path
+        '041': '128,40,136,48',      // Blackthorn City
+        '042': '128,32,136,40',      // Dragons Den
+        '043': '128,48,136,80',      // Route 45
+        '044': '110,70,114,74',      // Dark Cave
+        '045': '120,72,128,96',      // Route 46
+        '046': '144,64,152,72'       // Silver Cave
+      };
+      
+      return {
+        id: id,
+        name: location.name,
+        coords: coordsMap[id] || ''
+      };
+    }).filter(area => area !== null);
     
     setMapAreas(areas);
-  }, []);
+  }, [locations]);
 
   const handleAreaClick = (id) => {
     onLocationSelect(id);
@@ -207,6 +246,10 @@ function Map({ locations, selectedLocation, hoveredLocation, onLocationSelect, o
   const handleAreaLeave = () => {
     onLocationHover(null);
   };
+
+  // Get related locations for currently hovered or selected location
+  const relatedToHovered = hoveredLocation ? getRelatedLocationIds(hoveredLocation) : [];
+  const relatedToSelected = selectedLocation ? getRelatedLocationIds(selectedLocation) : [];
 
   return (
     <div className="map-wrapper">
@@ -245,6 +288,18 @@ function Map({ locations, selectedLocation, hoveredLocation, onLocationSelect, o
               const scaledWidth = (x2 - x1) * scale;
               const scaledHeight = (y2 - y1) * scale;
               
+              // Determine class based on selection/hover state
+              const isSelected = selectedLocation === area.id;
+              const isHovered = hoveredLocation === area.id;
+              const isRelatedToHovered = relatedToHovered.includes(area.id) && area.id !== hoveredLocation;
+              const isRelatedToSelected = relatedToSelected.includes(area.id) && area.id !== selectedLocation;
+              
+              let className = 'overlay-area';
+              if (isSelected) className += ' selected';
+              if (isHovered) className += ' hovered';
+              if (isRelatedToHovered) className += ' related-hovered';
+              if (isRelatedToSelected) className += ' related-selected';
+              
               return (
                 <rect
                   key={area.id}
@@ -252,9 +307,7 @@ function Map({ locations, selectedLocation, hoveredLocation, onLocationSelect, o
                   y={scaledY1}
                   width={scaledWidth}
                   height={scaledHeight}
-                  className={`overlay-area 
-                    ${selectedLocation === area.id ? 'selected' : ''} 
-                    ${hoveredLocation === area.id ? 'hovered' : ''}`}
+                  className={className}
                   onClick={() => handleAreaClick(area.id)}
                   onMouseEnter={() => handleAreaHover(area.id)}
                   onMouseLeave={handleAreaLeave}

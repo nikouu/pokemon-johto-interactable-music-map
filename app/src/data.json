@@ -1,190 +1,237 @@
 {
 	"000": {
 		"image": "maps/000-BLANK.png",
-		"youtube": ""
+		"youtube": "",
+		"name": "Blank"
 	},
 	"001": {
 		"image": "maps/001-NEW-BARK-TOWN.png",
-		"youtube": "https://www.youtube.com/watch?v=2y9qGM17SpM"
+		"youtube": "https://www.youtube.com/watch?v=2y9qGM17SpM",
+		"name": "New Bark Town"
 	},
 	"002": {
 		"image": "maps/002-ROUTE-29.png",
-		"youtube": "https://www.youtube.com/watch?v=lP1vP21-Kp0"
+		"youtube": "https://www.youtube.com/watch?v=lP1vP21-Kp0",
+		"name": "Route 29"
 	},
 	"003": {
 		"image": "maps/003-CHERRYGROVE-CITY.png",
-		"youtube": "https://www.youtube.com/watch?v=UhXiUxHhHIU"
+		"youtube": "https://www.youtube.com/watch?v=UhXiUxHhHIU",
+		"name": "Cherrygrove City"
 	},
 	"004": {
 		"image": "maps/004-ROUTE-30.png",
-		"youtube": "https://www.youtube.com/watch?v=bPfaVO0gPoI"
+		"youtube": "https://www.youtube.com/watch?v=bPfaVO0gPoI",
+		"name": "Route 30"
 	},
 	"005": {
 		"image": "maps/005-ROUTE-31.png",
-		"youtube": "https://www.youtube.com/watch?v=bPfaVO0gPoI"
+		"youtube": "https://www.youtube.com/watch?v=bPfaVO0gPoI",
+		"name": "Route 31"
 	},
 	"006": {
 		"image": "maps/006-VIOLET-CITY.png",
-		"youtube": "https://www.youtube.com/watch?v=CS_ZMPj21IE"
+		"youtube": "https://www.youtube.com/watch?v=CS_ZMPj21IE",
+		"name": "Violet City"
 	},
 	"007": {
 		"image": "maps/007-SPROUT-TOWER.png",
-		"youtube": "https://www.youtube.com/watch?v=b-PLPI8wtHM"
+		"youtube": "https://www.youtube.com/watch?v=b-PLPI8wtHM",
+		"name": "Sprout Tower"
 	},
 	"008": {
 		"image": "maps/008-ROUTE-32.png",
-		"youtube": "https://www.youtube.com/watch?v=bPfaVO0gPoI"
+		"youtube": "https://www.youtube.com/watch?v=bPfaVO0gPoI",
+		"name": "Route 32"
 	},
 	"009": {
 		"image": "maps/009-RUINS OF ALPH.png",
-		"youtube": "https://www.youtube.com/watch?v=teDTFUuZBPI"
+		"youtube": "https://www.youtube.com/watch?v=teDTFUuZBPI",
+		"name": "Ruins of Alph"
 	},
 	"010": {
 		"image": "maps/010-UNION-CAVE.png",
-		"youtube": "https://www.youtube.com/watch?v=teDTFUuZBPI"
+		"youtube": "https://www.youtube.com/watch?v=teDTFUuZBPI",
+		"name": "Union Cave"
 	},
 	"011": {
 		"image": "maps/011-ROUTE-33.png",
-		"youtube": "https://www.youtube.com/watch?v=bPfaVO0gPoI"
+		"youtube": "https://www.youtube.com/watch?v=bPfaVO0gPoI",
+		"name": "Route 33"
 	},
 	"012": {
 		"image": "maps/012-AZALEA-TOWN.png",
-		"youtube": "https://www.youtube.com/watch?v=64obE19g6Mk"
+		"youtube": "https://www.youtube.com/watch?v=64obE19g6Mk",
+		"name": "Azalea Town"
 	},
 	"013": {
 		"image": "maps/013-SLOWPOKE-WELL.png",
-		"youtube": "https://www.youtube.com/watch?v=EXORGSyIqe4"
+		"youtube": "https://www.youtube.com/watch?v=EXORGSyIqe4",
+		"name": "Slowpoke Well"
 	},
 	"014": {
 		"image": "maps/014-ILEX FOREST.png",
-		"youtube": "https://www.youtube.com/watch?v=teDTFUuZBPI"
+		"youtube": "https://www.youtube.com/watch?v=teDTFUuZBPI",
+		"name": "Ilex Forest"
 	},
 	"015": {
 		"image": "maps/015-ROUTE-34.png",
-		"youtube": "https://www.youtube.com/watch?v=ZFCfyEQ2ihY"
+		"youtube": "https://www.youtube.com/watch?v=ZFCfyEQ2ihY",
+		"name": "Route 34"
 	},
 	"016": {
 		"image": "maps/016-GOLDENROD-CITY.png",
-		"youtube": "https://www.youtube.com/watch?v=Tp8nuM-nwPE"
+		"youtube": "https://www.youtube.com/watch?v=Tp8nuM-nwPE",
+		"name": "Goldenrod City"
 	},
 	"017": {
 		"image": "maps/017-RADIO-TOWER.png",
-		"youtube": "https://www.youtube.com/watch?v=Tp8nuM-nwPE"
+		"youtube": "https://www.youtube.com/watch?v=Tp8nuM-nwPE",
+		"name": "Radio Tower"
 	},
 	"018": {
 		"image": "maps/018-ROUTE-35.png",
-		"youtube": "https://www.youtube.com/watch?v=ZFCfyEQ2ihY"
+		"youtube": "https://www.youtube.com/watch?v=ZFCfyEQ2ihY",
+		"name": "Route 35"
 	},
 	"019": {
 		"image": "maps/019-NATIONAL-PARK.png",
-		"youtube": "https://www.youtube.com/watch?v=rWwyIee0GwE"
+		"youtube": "https://www.youtube.com/watch?v=rWwyIee0GwE",
+		"name": "National Park"
 	},
 	"020": {
 		"image": "maps/020-ROUTE-36.png",
-		"youtube": "https://www.youtube.com/watch?v=ZFCfyEQ2ihY"
+		"youtube": "https://www.youtube.com/watch?v=ZFCfyEQ2ihY",
+		"name": "Route 36"
 	},
 	"021": {
 		"image": "maps/021-ROUTE-37.png",
-		"youtube": "https://www.youtube.com/watch?v=ZFCfyEQ2ihY"
+		"youtube": "https://www.youtube.com/watch?v=ZFCfyEQ2ihY",
+		"name": "Route 37"
 	},
 	"022": {
 		"image": "maps/022-ECRUTEAK-CITY.png",
-		"youtube": "https://www.youtube.com/watch?v=GhJhR96tJwk"
+		"youtube": "https://www.youtube.com/watch?v=GhJhR96tJwk",
+		"name": "Ecruteak City"
 	},
 	"023": {
 		"image": "maps/023-TIN-TOWER.png",
-		"youtube": "https://www.youtube.com/watch?v=hDbu7BSflvw"
+		"youtube": "https://www.youtube.com/watch?v=hDbu7BSflvw",
+		"name": "Tin Tower"
 	},
 	"024": {
 		"image": "maps/024-BURNED-TOWER.png",
-		"youtube": "https://www.youtube.com/watch?v=2DvjRIvWqbE"
+		"youtube": "https://www.youtube.com/watch?v=2DvjRIvWqbE",
+		"name": "Burned Tower"
 	},
 	"025": {
 		"image": "maps/025-ROUTE-38.png",
-		"youtube": "https://www.youtube.com/watch?v=fRSqy1puIaU"
+		"youtube": "https://www.youtube.com/watch?v=fRSqy1puIaU",
+		"name": "Route 38"
 	},
 	"026": {
 		"image": "maps/026-ROUTE-39.png",
-		"youtube": "https://www.youtube.com/watch?v=fRSqy1puIaU"
+		"youtube": "https://www.youtube.com/watch?v=fRSqy1puIaU",
+		"name": "Route 39"
 	},
 	"027": {
 		"image": "maps/027-OLIVINE-CITY.png",
-		"youtube": "https://www.youtube.com/watch?v=CS_ZMPj21IE"
+		"youtube": "https://www.youtube.com/watch?v=CS_ZMPj21IE",
+		"name": "Olivine City"
 	},
 	"028": {
 		"image": "maps/028-LIGHTHOUSE.png",
-		"youtube": "https://www.youtube.com/watch?v=cQ_qTrrEp8c"
+		"youtube": "https://www.youtube.com/watch?v=cQ_qTrrEp8c",
+		"name": "Lighthouse"
 	},
 	"029": {
 		"image": "maps/029-BATTLE-TOWER.png",
-		"youtube": "https://www.youtube.com/watch?v=ChIF8RW_b2Y"
+		"youtube": "https://www.youtube.com/watch?v=ChIF8RW_b2Y",
+		"name": "Battle Tower"
 	},
 	"030": {
 		"image": "maps/030-ROUTE-40.png",
-		"youtube": "https://www.youtube.com/watch?v=ZFCfyEQ2ihY"
+		"youtube": "https://www.youtube.com/watch?v=ZFCfyEQ2ihY",
+		"name": "Route 40"
 	},
 	"031": {
 		"image": "maps/031-WHIRL-ISLANDS.png",
-		"youtube": "https://www.youtube.com/watch?v=teDTFUuZBPI"
+		"youtube": "https://www.youtube.com/watch?v=teDTFUuZBPI",
+		"name": "Whirl Islands"
 	},
 	"032": {
 		"image": "maps/032-ROUTE-41.png",
-		"youtube": "https://www.youtube.com/watch?v=ZFCfyEQ2ihY"
+		"youtube": "https://www.youtube.com/watch?v=ZFCfyEQ2ihY",
+		"name": "Route 41"
 	},
 	"033": {
 		"image": "maps/033-CIANWOOD-CITY.png",
-		"youtube": "https://www.youtube.com/watch?v=GhJhR96tJwk"
+		"youtube": "https://www.youtube.com/watch?v=GhJhR96tJwk",
+		"name": "Cianwood City"
 	},
 	"034": {
 		"image": "maps/034-ROUTE-42.png",
-		"youtube": "https://www.youtube.com/watch?v=O1lxaU-0I3Y"
+		"youtube": "https://www.youtube.com/watch?v=O1lxaU-0I3Y",
+		"name": "Route 42"
 	},
 	"035": {
 		"image": "maps/035-MT-MORTAR.png",
-		"youtube": "https://www.youtube.com/watch?v=teDTFUuZBPI"
+		"youtube": "https://www.youtube.com/watch?v=teDTFUuZBPI",
+		"name": "Mt Mortar"
 	},
 	"036": {
 		"image": "maps/036-MAHOGANY-TOWN.png",
-		"youtube": "https://www.youtube.com/watch?v=UhXiUxHhHIU"
+		"youtube": "https://www.youtube.com/watch?v=UhXiUxHhHIU",
+		"name": "Mahogany Town"
 	},
 	"037": {
 		"image": "maps/037-ROUTE-43.png",
-		"youtube": "https://www.youtube.com/watch?v=O1lxaU-0I3Y"
+		"youtube": "https://www.youtube.com/watch?v=O1lxaU-0I3Y",
+		"name": "Route 43"
 	},
 	"038": {
 		"image": "maps/038-LAKE-OF-RAGE.png",
-		"youtube": "https://www.youtube.com/watch?v=O1lxaU-0I3Y"
+		"youtube": "https://www.youtube.com/watch?v=O1lxaU-0I3Y",
+		"name": "Lake of Rage"
 	},
 	"039": {
 		"image": "maps/039-ROUTE-44.png",
-		"youtube": "https://www.youtube.com/watch?v=O1lxaU-0I3Y"
+		"youtube": "https://www.youtube.com/watch?v=O1lxaU-0I3Y",
+		"name": "Route 44"
 	},
 	"040": {
 		"image": "maps/040-ICE-PATH.png",
-		"youtube": "https://www.youtube.com/watch?v=EXORGSyIqe4"
+		"youtube": "https://www.youtube.com/watch?v=EXORGSyIqe4",
+		"name": "Ice Path"
 	},
 	"041": {
 		"image": "maps/041-BLACKTHORN-CITY.png",
-		"youtube": "https://www.youtube.com/watch?v=64obE19g6Mk"
+		"youtube": "https://www.youtube.com/watch?v=64obE19g6Mk",
+		"name": "Blackthorn City"
 	},
 	"042": {
 		"image": "maps/042-DRAGONS-DEN.png",
-		"youtube": "https://www.youtube.com/watch?v=1Ndgt8Nwrtw"
+		"youtube": "https://www.youtube.com/watch?v=1Ndgt8Nwrtw",
+		"name": "Dragons Den"
 	},
 	"043": {
 		"image": "maps/043-ROUTE-45.png",
-		"youtube": "https://www.youtube.com/watch?v=ZFCfyEQ2ihY"
+		"youtube": "https://www.youtube.com/watch?v=ZFCfyEQ2ihY",
+		"name": "Route 45"
 	},
 	"044": {
 		"image": "maps/044-DARK-CAVE.png",
-		"youtube": "https://www.youtube.com/watch?v=EXORGSyIqe4"
+		"youtube": "https://www.youtube.com/watch?v=EXORGSyIqe4",
+		"name": "Dark Cave"
 	},
 	"045": {
 		"image": "maps/045-ROUTE-46.png",
-		"youtube": "https://www.youtube.com/watch?v=ZFCfyEQ2ihY"
+		"youtube": "https://www.youtube.com/watch?v=ZFCfyEQ2ihY",
+		"name": "Route 46"
 	},
 	"046": {
 		"image": "maps/046-SILVER-CAVE.png",
-		"youtube": "https://www.youtube.com/watch?v=cQ_qTrrEp8c"
+		"youtube": "https://www.youtube.com/watch?v=cQ_qTrrEp8c",
+		"name": "Silver Cave"
 	}
 }
