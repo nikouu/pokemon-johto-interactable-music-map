@@ -1,7 +1,7 @@
 # Pokemon Johto Interactable Music Map
 An interactable map to explore the Johto music in the original generation two Pokemon game for the Game Boy Color.
 
-![image](https://github.com/user-attachments/assets/286d9924-aae0-4f73-96df-cca27fce26f8)
+![image](https://github.com/user-attachments/assets/d31b5024-da2d-4d77-b2d4-d105b01bb98f)
 
 ## Controls
 
