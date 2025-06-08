@@ -141,10 +141,11 @@ function App() {
                 <li>Notice how routes, cities, and caves are connected through their musical identity</li>
                 <li>Click the same location again to pause the music</li>
               </ul>
+			  <br/>
               <p>
                 <a href="https://github.com/nikouu/pokemon-johto-interactable-music-map" target="_blank" rel="noopener noreferrer">
                   View project on GitHub
-                </a>
+                </a>. It's an experiment on vibe coding. <i>And you can tell.</i>
               </p>
             </div>
           </div>
