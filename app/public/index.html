@@ -10,6 +10,19 @@
       content="Interactive Pokemon Johto Region music map"
     />
     <title>Pokemon Johto Music Map</title>
+    <script>
+      // Handle SPA redirects for GitHub Pages
+      (function() {
+        const query = window.location.search;
+        const path = query.match(/path=([^&]*)/);
+        
+        if (path && path[1]) {
+          history.replaceState(null, null, 
+            window.location.pathname.split('?')[0] + path[1]
+          );
+        }
+      })();
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

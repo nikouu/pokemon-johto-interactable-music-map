@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './Map.css';
 import blankMapImage from '../maps/000-BLANK.png';
 import locationData from '../data.json';
+import { getAssetPath } from '../config';
 
 // Import all map images here
 import map001 from '../maps/001-NEW-BARK-TOWN.png';
