@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Map from './components/Map';
 import LocationList from './components/LocationList';
-import InfoBox from './components/InfoBox';
 import MusicPlayer from './components/MusicPlayer';
 import locationData from './data';
-import { PUBLIC_URL } from './config';
 import './App.css';
 
 function App() {

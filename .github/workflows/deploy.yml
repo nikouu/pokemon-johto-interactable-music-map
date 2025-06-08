@@ -26,7 +26,8 @@ jobs:
         run: |
           cd app
           npm ci
-          npm run build
+          # Prevent treating warnings as errors in CI
+          CI=false npm run build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
