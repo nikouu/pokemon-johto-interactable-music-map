@@ -1,0 +1,106 @@
+/* Basic reset and page setup */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #fff;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  max-width: 1800px; /* Prevent excessive stretching on very wide screens */
+  margin: 0 auto; /* Center the app container */
+}
+
+.content-area {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Add side padding on larger screens to center content */
+@media (min-width: 1200px) {
+  .content-area {
+    padding: 20px 15%; /* Substantial padding on very large screens */
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .content-area {
+    padding: 20px 10%; /* Moderate padding on large screens */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .content-area {
+    padding: 20px 5%; /* Smaller padding on medium screens */
+  }
+}
+
+@media (max-width: 767px) {
+  .content-area {
+    padding: 20px; /* Minimal padding on small screens */
+  }
+}
+
+.top-section {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.map-container {
+  flex: 3;
+  margin-right: 20px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 450px; /* Ensure map has a good minimum height */
+}
+
+.locations-container {
+  flex: 1;
+  height: 400px;
+  min-width: 200px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom-section {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.info-container {
+  flex: 1;
+  margin-right: 20px;
+  min-width: 250px;
+}
+
+.music-container {
+  flex: 2;
+  min-width: 300px;
+}
+
+/* Media queries for responsive layout */
+@media (max-width: 900px) {
+  .top-section, .bottom-section {
+    flex-direction: column;
+  }
+  
+  .map-container, .locations-container, .info-container, .music-container {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
