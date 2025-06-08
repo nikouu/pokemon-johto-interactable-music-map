@@ -33,14 +33,17 @@ function LocationList({ locations, selectedLocation, hoveredLocation, isPlaying,
   const relatedToSelected = selectedLocation ? getRelatedLocations(selectedLocation) : [];
   const relatedToHovered = hoveredLocation ? getRelatedLocations(hoveredLocation) : [];
 
+  // Handle list item click
   const handleLocationClick = (id) => {
     onLocationSelect(id);
   };
 
+  // Handle list item hover - updates both local state and parent component
   const handleLocationHover = (id) => {
     onLocationHover && onLocationHover(id);
   };
 
+  // Handle list item mouse leave
   const handleLocationLeave = () => {
     onLocationHover && onLocationHover(null);
   };
@@ -59,11 +62,19 @@ function LocationList({ locations, selectedLocation, hoveredLocation, isPlaying,
           const isRelatedToSelected = relatedToSelected.includes(id) && id !== selectedLocation;
           const isRelatedToHovered = relatedToHovered.includes(id) && id !== hoveredLocation;
           
+          // Check if selected and hovered are the same location
+          const isSelectedAndHoveredSame = selectedLocation === hoveredLocation && selectedLocation !== null;
+          
           let className = 'location-item';
           if (isSelected) className += ' selected';
-          if (isHovered) className += ' hovered';
+          
+          // Only add hover classes if we're not hovering the selected location
+          if (!isSelectedAndHoveredSame) {
+            if (isHovered) className += ' hovered';
+            if (isRelatedToHovered) className += ' related-hovered';
+          }
+          
           if (isRelatedToSelected) className += ' related-selected';
-          if (isRelatedToHovered) className += ' related-hovered';
           if (isSelected && isPlaying) className += ' playing';
           
           return (

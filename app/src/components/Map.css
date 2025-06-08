@@ -161,14 +161,14 @@ h2 {
 
 /* For when a location is both selected and hovered */
 .overlay-area.selected.hovered {
-  animation: pulse-contrast 1.5s infinite ease-in-out;
+  animation: none !important;
   fill: rgba(139, 0, 139, 0.5); /* Purple fill */
   stroke: white;
   stroke-width: 4px; /* Thicker outline */
 }
 
 .overlay-area.related-selected.related-hovered {
-  animation: pulse-white-light 1.5s infinite ease-in-out;
+  animation: none !important;
   fill: rgba(139, 0, 139, 0.3); /* Light purple fill */
   stroke: rgba(255, 255, 255, 0.9);
   stroke-width: 3px; /* Thicker outline */

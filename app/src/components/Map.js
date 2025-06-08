@@ -294,10 +294,18 @@ function Map({ locations, selectedLocation, hoveredLocation, onLocationSelect, o
               const isRelatedToHovered = relatedToHovered.includes(area.id) && area.id !== hoveredLocation;
               const isRelatedToSelected = relatedToSelected.includes(area.id) && area.id !== selectedLocation;
               
+              // Check if selected and hovered are the same location
+              const isSelectedAndHoveredSame = selectedLocation === hoveredLocation && selectedLocation !== null;
+              
               let className = 'overlay-area';
               if (isSelected) className += ' selected';
-              if (isHovered) className += ' hovered';
-              if (isRelatedToHovered) className += ' related-hovered';
+              
+              // Only add hover classes if we're not hovering the selected location
+              if (!isSelectedAndHoveredSame) {
+                if (isHovered) className += ' hovered';
+                if (isRelatedToHovered) className += ' related-hovered';
+              }
+              
               if (isRelatedToSelected) className += ' related-selected';
               
               return (

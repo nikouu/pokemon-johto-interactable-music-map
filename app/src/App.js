@@ -103,6 +103,7 @@ function App() {
     setHoveredLocation(locationId);
   };
 
+  // Update to ensure we pass hoveredLocation to LocationList
   return (
     <div className="app-container">
       <div className="content-area">
@@ -120,6 +121,7 @@ function App() {
             <LocationList 
               locations={locationData}
               selectedLocation={selectedLocation}
+              hoveredLocation={hoveredLocation}
               isPlaying={isPlaying}
               onLocationSelect={handleLocationSelect}
               onLocationHover={handleLocationHover}
@@ -128,11 +130,15 @@ function App() {
         </div>
         <div className="bottom-section">
           <div className="info-container">
-            <InfoBox 
-              locations={locationData}
-              selectedLocation={selectedLocation} 
-            />
+            <h2>About Johto Region</h2>
+            <div className="info-content">
+              <p>The Johto region is home to many Pokémon and was introduced in Pokémon Gold and Silver. 
+              This interactive map lets you explore Johto's locations and listen to their iconic music themes.</p>
+              <p>Select a location from the map or list to view details and play its theme music.</p>
+              <p>Locations with the same color share the same music theme.</p>
+            </div>
           </div>
+          
           <div className="music-container">
             <MusicPlayer 
               locations={locationData}
