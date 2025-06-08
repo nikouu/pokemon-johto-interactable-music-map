@@ -57,22 +57,68 @@ html, body {
   flex-wrap: wrap;
 }
 
-.map-container {
-  flex: 3;
-  margin-right: 20px;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 450px; /* Ensure map has a good minimum height */
+/* For larger screens - side by side layout */
+@media (min-width: 901px) {
+  .top-section {
+    /* Use display: grid instead of flex for more precise sizing */
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-gap: 20px;
+    align-items: start;
+  }
+  
+  .map-container {
+    min-width: 0;
+    /* Remove min-height to let content determine height */
+    height: auto;
+  }
+  
+  /* This ensures the map content determines its own height */
+  .map-content {
+    height: auto;
+  }
+  
+  /* This makes the locations container match ONLY the actual image area */
+  .locations-container {
+    /* Calculate height to match only the image part */
+    height: auto;
+    max-height: calc(100% - 60px); /* Subtracting header space */
+    min-width: 0;
+    /* Ensure it doesn't grow taller than the map image */
+    align-self: center;
+  }
+  
+  .location-list-wrapper {
+    /* Make this fill the container */
+    height: 100%;
+    /* Ensure it doesn't grow past the image height */
+    max-height: 400px; /* Adjust this value based on your map image height */
+  }
+  
+  .location-list-scroll {
+    /* Enable scrolling for the list content */
+    overflow-y: auto;
+    max-height: none !important; /* Remove max-height constraint that's breaking the sizing */
+  }
 }
 
-.locations-container {
-  flex: 1;
-  height: 400px;
-  min-width: 200px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+/* For smaller screens - stacked layout */
+@media (max-width: 900px) {
+  .top-section {
+    flex-direction: column;
+  }
+  
+  .map-container {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+    min-height: 300px;
+  }
+  
+  .locations-container {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 }
 
 .bottom-section {
@@ -98,9 +144,47 @@ html, body {
     flex-direction: column;
   }
   
-  .map-container, .locations-container, .info-container, .music-container {
+  .map-container, .info-container, .music-container {
     width: 100%;
     margin-right: 0;
     margin-bottom: 20px;
+  }
+  
+  /* Keep width:100% but remove height setting */
+  .locations-container {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+/* Locations container sizing */
+.locations-container {
+  flex: 1;
+  min-width: 200px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  /* Remove any max-height or height constraints */
+  max-height: none !important;
+  /* Height will be set by JavaScript */
+}
+
+.location-list-wrapper {
+  height: 100% !important;
+  display: flex;
+  flex-direction: column;
+  /* Remove max-height constraint */
+  max-height: none !important;
+}
+
+.location-list-scroll {
+  overflow-y: auto;
+  /* Height will be managed by JavaScript */
+}
+
+/* Media query for small screens */
+@media (max-width: 900px) {
+  .locations-container {
+    /* height: 500px; */ /* Removed fixed height on small screens */
   }
 }

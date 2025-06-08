@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Map from './components/Map';
 import LocationList from './components/LocationList';
 import InfoBox from './components/InfoBox';
@@ -10,6 +10,83 @@ function App() {
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [hoveredLocation, setHoveredLocation] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  
+  const mapWrapperRef = useRef(null);
+  const locationListRef = useRef(null);
+  
+  // More precise height synchronization
+  useEffect(() => {
+    const syncHeights = () => {
+      try {
+        // Get the map wrapper element (includes the title)
+        const mapWrapper = document.querySelector('.map-wrapper');
+        // Get the locations list container
+        const locationList = locationListRef.current;
+        
+        if (!mapWrapper || !locationList) {
+          console.log('Elements not found yet');
+          return;
+        }
+        
+        // Get the actual height of the map wrapper
+        const mapHeight = mapWrapper.offsetHeight;
+        
+        // Set the height of the locations container
+        locationList.style.height = `${mapHeight}px`;
+        
+        // Find the location list header
+        const locationHeader = locationList.querySelector('h2');
+        const headerHeight = locationHeader ? locationHeader.offsetHeight + 20 : 50;
+        
+        // Calculate height for the scrollable area
+        const scrollArea = locationList.querySelector('.location-list-scroll');
+        if (scrollArea) {
+          scrollArea.style.height = `${mapHeight - headerHeight}px`;
+          console.log(`Heights synced - Map: ${mapHeight}px, Scroll Area: ${mapHeight - headerHeight}px`);
+        }
+      } catch (e) {
+        console.error('Error syncing heights:', e);
+      }
+    };
+    
+    // Run sync when the image loads
+    const mapImage = document.querySelector('.region-map');
+    if (mapImage) {
+      if (mapImage.complete) {
+        syncHeights();
+      } else {
+        mapImage.onload = () => {
+          syncHeights();
+          // Run again after a short delay to account for any rendering delays
+          setTimeout(syncHeights, 100);
+        };
+      }
+    }
+
+    // Initial sync with delay to ensure DOM is ready
+    const initialSyncTimer = setTimeout(syncHeights, 300);
+    
+    // Also sync on window resize
+    window.addEventListener('resize', syncHeights);
+    
+    // Create a mutation observer to watch for DOM changes
+    const observer = new MutationObserver(syncHeights);
+    if (document.body) {
+      observer.observe(document.body, { 
+        childList: true,
+        subtree: true,
+        attributes: true
+      });
+    }
+    
+    // Cleanup
+    return () => {
+      clearTimeout(initialSyncTimer);
+      window.removeEventListener('resize', syncHeights);
+      observer.disconnect();
+      if (mapImage) mapImage.onload = null;
+    };
+  }, [selectedLocation]);
 
   const handleLocationSelect = (locationId) => {
     // If the same location is clicked again, toggle play/pause state
@@ -30,7 +107,7 @@ function App() {
     <div className="app-container">
       <div className="content-area">
         <div className="top-section">
-          <div className="map-container">
+          <div className="map-container" ref={mapWrapperRef}>
             <Map 
               locations={locationData} 
               selectedLocation={selectedLocation}
@@ -39,7 +116,7 @@ function App() {
               onLocationHover={handleLocationHover}
             />
           </div>
-          <div className="locations-container">
+          <div className="locations-container" ref={locationListRef}>
             <LocationList 
               locations={locationData}
               selectedLocation={selectedLocation}
