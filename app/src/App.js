@@ -141,6 +141,11 @@ function App() {
                 <li>Notice how routes, cities, and caves are connected through their musical identity</li>
                 <li>Click the same location again to pause the music</li>
               </ul>
+              <p>
+                <a href="https://github.com/nikouu/pokemon-johto-interactable-music-map" target="_blank" rel="noopener noreferrer">
+                  View project on GitHub
+                </a>
+              </p>
             </div>
           </div>
           
